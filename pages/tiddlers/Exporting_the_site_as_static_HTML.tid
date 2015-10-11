@@ -1,6 +1,29 @@
 created: 20151010142428672
-modified: 20151010142433863
+modified: 20151011163125006
 title: Exporting the site as static HTML
 type: text/vnd.tiddlywiki
 
-``tiddlywiki 2worlds --rendertiddler $:/core/save/all index.html text/plain``
+Simple - but resulting file will open an error message for missing a component:
+
+```
+tiddlywiki 2worlds --rendertiddler $:/core/save/all index.html text/plain
+```
+
+Better: 
+
+```
+#!/bin/sh
+tiddlywiki ../readonly --rendertiddler $:/core/save/all ../../index.html text/plain
+git checkout master
+cd ../
+git add --all .
+git commit -am "Saved on: `date`"
+git push origin master
+git checkout gh-pages
+git merge master
+git push origin gh-pages
+git checkout master
+rsync -avz index.html iani@larigot.avarts.ionio.gr:/Library/WebServer/Documents/projects/2worlds/
+
+```
+
