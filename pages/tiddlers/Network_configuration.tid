@@ -1,0 +1,11 @@
+created: 20151010135554534
+modified: 20151010135925117
+title: Network configuration
+type: text/vnd.tiddlywiki
+
+The network is implemented wirelessly using a central WiFi Router.  (The same router also serves the website ... running on the mac-mini!?).
+
+Devices connected to the WiFi router are: 
+
+# Raspberry Pi 1-4
+# ~MacMini

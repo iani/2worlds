@@ -1,0 +1,19 @@
+created: 20151010143258752
+modified: 20151010143749316
+title: Sensors
+type: text/vnd.tiddlywiki
+
+
+
+! Notes
+
+* SPI = Serial Peripheral Interface. 
+** 4 Channels used, where each channel is transmitted via a separate wire connected from the SPI chip to the RPI's GPIO pins.
+*** MOSI : Master Out Slave In
+*** MISO : Master In Slave Out
+*** Clock : (Synchronization)
+*** x : Data
+
+Data input into the RPI via GPIO is done by expressly polling the SPI chip by sending it a command.  Each time we want to get a new measurement value, we send that command to the SPI chip. 
+
+

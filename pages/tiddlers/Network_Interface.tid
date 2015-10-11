@@ -1,0 +1,8 @@
+created: 20151010134628702
+modified: 20151010143246470
+title: Network Interface
+type: text/vnd.tiddlywiki
+
+* Each RPI is equipped with a USB WiFi antenna
+* Each RPI has its own static IP address
+* [[Network configuration]] 

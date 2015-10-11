@@ -1,0 +1,9 @@
+created: 20151010140423254
+modified: 20151010142731776
+title: RPI Network Setup
+type: text/vnd.tiddlywiki
+
+Files needed for network setup, using a static IP address for each Raspberry Pi: 
+
+# ``/etc/network/interfaces``
+# ``/etc/wpa_supplicant/wpa_supplicant.conf``

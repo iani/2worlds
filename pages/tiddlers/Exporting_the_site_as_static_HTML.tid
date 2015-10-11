@@ -1,0 +1,6 @@
+created: 20151010142428672
+modified: 20151010142433863
+title: Exporting the site as static HTML
+type: text/vnd.tiddlywiki
+
+``tiddlywiki 2worlds --rendertiddler $:/core/save/all index.html text/plain``
