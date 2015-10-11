@@ -1,3 +1,4 @@
+#!/bin/sh
 tiddlywiki ../readonly --rendertiddler $:/core/save/all ../../index.html text/plain
 git checkout master
 cd ../
