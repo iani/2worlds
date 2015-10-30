@@ -1,0 +1,9 @@
+created: 20151030145414653
+modified: 20151030155719208
+title: Test Sound
+type: text/vnd.tiddlywiki
+
+Testing only
+
+<$button class="tc-btn-invisible"><$action-socketSend $sound="soundname" $key="keyword"/>TheSoundName</$button>
+

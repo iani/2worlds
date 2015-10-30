@@ -45,7 +45,8 @@ DAMAGE.
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
 <title>Two Worlds — an interactive sound installation</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~--><!--~~ Raw markup ~~-->
-
+<script src="js/socket.io-1.2.0.js"></script>
+<script src="js/tiddlySocket.js"></script>
 </head>
 <body class="tc-body">
 <!--~~ Static styles ~~-->
@@ -155,6 +156,10 @@ Error message and password prompt
 
 <li>$:/languages/zh-Hant</li>
 
+<li>$:/myJS/include_socket.io</li>
+
+<li>$:/myJS/tiddlySocket</li>
+
 <li>$:/palette</li>
 
 <li>$:/plugins/tiddlywiki/browser-sniff</li>
@@ -221,6 +226,10 @@ Error message and password prompt
 
 <li>Sensors</li>
 
+<li>Sounds</li>
+
+<li>Test Sound</li>
+
 <li>WebSite</li>
 
 <li>Workshops</li>
@@ -236,7 +245,7 @@ Error message and password prompt
 
 <div id="storeArea" style="display:none;">
 <div title="$:/config/OriginalTiddlerPaths" type="application/json">
-<pre>{&quot;$:/DefaultTiddlers&quot;:&quot;../../pages/tiddlers/$__DefaultTiddlers.tid&quot;,&quot;$:/SiteSubtitle&quot;:&quot;../../pages/tiddlers/$__SiteSubtitle.tid&quot;,&quot;$:/SiteTitle&quot;:&quot;../../pages/tiddlers/$__SiteTitle.tid&quot;,&quot;$:/StoryList&quot;:&quot;../../pages/tiddlers/$__StoryList.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home&quot;:&quot;../../pages/tiddlers/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_home.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/storyview&quot;:&quot;../../pages/tiddlers/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_storyview.tid&quot;,&quot;$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/tiddlyweb&quot;:&quot;../../pages/tiddlers/$__config_Plugins_Disabled_$__plugins_tiddlywiki_tiddlyweb.tid&quot;,&quot;$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/close-others&quot;:&quot;../../pages/tiddlers/$__config_ViewToolbarButtons_Visibility_$__core_ui_Buttons_close-others.tid&quot;,&quot;$:/palette&quot;:&quot;../../pages/tiddlers/$__palette.tid&quot;,&quot;$:/themes/tiddlywiki/vanilla/options/sidebarlayout&quot;:&quot;../../pages/tiddlers/$__themes_tiddlywiki_vanilla_options_sidebarlayout.tid&quot;,&quot;$:/view&quot;:&quot;../../pages/tiddlers/$__view.tid&quot;,&quot;Background&quot;:&quot;../../pages/tiddlers/Background.tid&quot;,&quot;Concept&quot;:&quot;../../pages/tiddlers/Concept.tid&quot;,&quot;Design&quot;:&quot;../../pages/tiddlers/Design.tid&quot;,&quot;Events&quot;:&quot;../../pages/tiddlers/Events.tid&quot;,&quot;Exporting the site as static HTML&quot;:&quot;../../pages/tiddlers/Exporting_the_site_as_static_HTML.tid&quot;,&quot;Home&quot;:&quot;../../pages/tiddlers/Home.tid&quot;,&quot;Implementation&quot;:&quot;../../pages/tiddlers/Implementation.tid&quot;,&quot;Installation&quot;:&quot;../../pages/tiddlers/Installation.tid&quot;,&quot;Interactive Narrative&quot;:&quot;../../pages/tiddlers/Interactive_Narrative.tid&quot;,&quot;Network Interface&quot;:&quot;../../pages/tiddlers/Network_Interface.tid&quot;,&quot;Network configuration&quot;:&quot;../../pages/tiddlers/Network_configuration.tid&quot;,&quot;RPI Network Setup&quot;:&quot;../../pages/tiddlers/RPI_Network_Setup.tid&quot;,&quot;Raspberry Pi&quot;:&quot;../../pages/tiddlers/Raspberry_Pi.tid&quot;,&quot;Seminar&quot;:&quot;../../pages/tiddlers/Seminar.tid&quot;,&quot;Sensors&quot;:&quot;../../pages/tiddlers/Sensors.tid&quot;,&quot;WebSite&quot;:&quot;../../pages/tiddlers/WebSite.tid&quot;,&quot;Workshops&quot;:&quot;../../pages/tiddlers/Workshops.tid&quot;,&quot;$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/info&quot;:&quot;$__config_ViewToolbarButtons_Visibility_$__core_ui_Buttons_info.tid&quot;,&quot;undefined&quot;:&quot;$__config_PageControlButtons_Visibility_$__core_ui_Buttons_control-panel.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler&quot;:&quot;$__config_PageControlButtons_Visibility_$__core_ui_Buttons_new-tiddler.tid&quot;,&quot;$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/edit&quot;:&quot;$__config_ViewToolbarButtons_Visibility_$__core_ui_Buttons_edit.tid&quot;}</pre>
+<pre>{&quot;$:/DefaultTiddlers&quot;:&quot;../../pages/tiddlers/$__DefaultTiddlers.tid&quot;,&quot;$:/SiteSubtitle&quot;:&quot;../../pages/tiddlers/$__SiteSubtitle.tid&quot;,&quot;$:/SiteTitle&quot;:&quot;../../pages/tiddlers/$__SiteTitle.tid&quot;,&quot;$:/StoryList&quot;:&quot;../../pages/tiddlers/$__StoryList.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home&quot;:&quot;../../pages/tiddlers/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_home.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/storyview&quot;:&quot;../../pages/tiddlers/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_storyview.tid&quot;,&quot;$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/tiddlyweb&quot;:&quot;../../pages/tiddlers/$__config_Plugins_Disabled_$__plugins_tiddlywiki_tiddlyweb.tid&quot;,&quot;$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/close-others&quot;:&quot;../../pages/tiddlers/$__config_ViewToolbarButtons_Visibility_$__core_ui_Buttons_close-others.tid&quot;,&quot;$:/myJS/include_socket.io&quot;:&quot;../../pages/tiddlers/$__myJS_include_socket.io.tid&quot;,&quot;$:/myJS/tiddlySocket&quot;:&quot;../../pages/tiddlers/$__myJS_tiddlySocket.tid&quot;,&quot;$:/palette&quot;:&quot;../../pages/tiddlers/$__palette.tid&quot;,&quot;$:/themes/tiddlywiki/vanilla/options/sidebarlayout&quot;:&quot;../../pages/tiddlers/$__themes_tiddlywiki_vanilla_options_sidebarlayout.tid&quot;,&quot;$:/view&quot;:&quot;../../pages/tiddlers/$__view.tid&quot;,&quot;Background&quot;:&quot;../../pages/tiddlers/Background.tid&quot;,&quot;Concept&quot;:&quot;../../pages/tiddlers/Concept.tid&quot;,&quot;Design&quot;:&quot;../../pages/tiddlers/Design.tid&quot;,&quot;Events&quot;:&quot;../../pages/tiddlers/Events.tid&quot;,&quot;Exporting the site as static HTML&quot;:&quot;../../pages/tiddlers/Exporting_the_site_as_static_HTML.tid&quot;,&quot;Home&quot;:&quot;../../pages/tiddlers/Home.tid&quot;,&quot;Implementation&quot;:&quot;../../pages/tiddlers/Implementation.tid&quot;,&quot;Installation&quot;:&quot;../../pages/tiddlers/Installation.tid&quot;,&quot;Interactive Narrative&quot;:&quot;../../pages/tiddlers/Interactive_Narrative.tid&quot;,&quot;Network Interface&quot;:&quot;../../pages/tiddlers/Network_Interface.tid&quot;,&quot;Network configuration&quot;:&quot;../../pages/tiddlers/Network_configuration.tid&quot;,&quot;RPI Network Setup&quot;:&quot;../../pages/tiddlers/RPI_Network_Setup.tid&quot;,&quot;Raspberry Pi&quot;:&quot;../../pages/tiddlers/Raspberry_Pi.tid&quot;,&quot;Seminar&quot;:&quot;../../pages/tiddlers/Seminar.tid&quot;,&quot;Sensors&quot;:&quot;../../pages/tiddlers/Sensors.tid&quot;,&quot;Sounds&quot;:&quot;../../pages/tiddlers/Sounds.tid&quot;,&quot;Test Sound&quot;:&quot;../../pages/tiddlers/Test_Sound.tid&quot;,&quot;WebSite&quot;:&quot;../../pages/tiddlers/WebSite.tid&quot;,&quot;Workshops&quot;:&quot;../../pages/tiddlers/Workshops.tid&quot;,&quot;$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/info&quot;:&quot;$__config_ViewToolbarButtons_Visibility_$__core_ui_Buttons_info.tid&quot;,&quot;undefined&quot;:&quot;$__config_PageControlButtons_Visibility_$__core_ui_Buttons_control-panel.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler&quot;:&quot;$__config_PageControlButtons_Visibility_$__core_ui_Buttons_new-tiddler.tid&quot;,&quot;$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/edit&quot;:&quot;$__config_ViewToolbarButtons_Visibility_$__core_ui_Buttons_edit.tid&quot;}</pre>
 </div>
 <div created="20151011093302256" modified="20151011093301195" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home" type="text/vnd.tiddlywiki">
 <pre>show</pre>
@@ -4188,6 +4197,12 @@ Error message and password prompt
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;module-type&quot;: &quot;widget&quot;
         },
+        &quot;$:/core/modules/widgets/action-navigate2.js&quot;: {
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/widgets/action-navigate2.js\ntype: application/javascript\nmodule-type: widget\n\nModified version of action-navigate to create a new url and send it to piratebox\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar Widget = require(\&quot;$:/core/modules/widgets/widget.js\&quot;).widget;\n    \nvar NavigateWidget2 = function(parseTreeNode,options) {\n    this.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nNavigateWidget2.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nNavigateWidget2.prototype.render = function(parent,nextSibling) {\n    this.computeAttributes();\n    this.execute();\n};\n\n/*\nCompute the internal state of the widget\n*/\nNavigateWidget2.prototype.execute = function() {\n    this.actionTo = this.getAttribute(\&quot;$id\&quot;);\n    this.actionPath = this.getAttribute(\&quot;$path\&quot;);\n    // *** added the dimension attribute to size image according to orientation (portrait or landscape)\n    this.actionDim = this.getAttribute(\&quot;$dimension\&quot;);\n};\n\n/*\nRefresh the widget by ensuring our attributes are up to date\n*/\nNavigateWidget2.prototype.refresh = function(changedTiddlers) {\n    var changedAttributes = this.computeAttributes();\n    if(changedAttributes[\&quot;$id\&quot;] || changedAttributes[\&quot;$path\&quot;] || changedAttributes[\&quot;$dimension\&quot;]) {\n\tthis.refreshSelf();\n\treturn true;\n    }\n    return this.refreshChildren(changedTiddlers);\n};\n\n/*\nInvoke the action associated with this widget\n*/\nNavigateWidget2.prototype.invokeAction = function(triggeringWidget,event) {\n    // *** if something happens: here were some stuff commented out from the original action-navigate.js file\n\n    // *** location.search doesn't read the # symbol, so we replace it before we send the link. Piratebox does the reverse replacement in order to get the correct link\n    var strhref = window.location.href.replace('#', '&lt;&lt;&lt;');\n\n    // *** beware -- change the IP to 192.168.77.1 in order to connect to the piratebox network\n    window.location.href = \&quot;http://192.168.77.1:8686?id=\&quot; + this.getAttribute(\&quot;$id\&quot;) + \&quot;&amp;addr=\&quot; + strhref + \&quot;&amp;imgPath=\&quot; + this.getAttribute(\&quot;$path\&quot;) + \&quot;&amp;dim=\&quot; + this.getAttribute(\&quot;$dimension\&quot;); // this invokes a link\n\n    return true; // Action was invoked\n};\n    \n    exports[\&quot;action-navigate2\&quot;] = NavigateWidget2;\n\n})();\n&quot;,
+            &quot;title&quot;: &quot;$:/core/modules/widgets/action-navigate2.js&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;module-type&quot;: &quot;widget&quot;
+        },
         &quot;$:/core/modules/widgets/action-sendmessage.js&quot;: {
             &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/widgets/action-sendmessage.js\ntype: application/javascript\nmodule-type: widget\n\nAction widget to send a message\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar Widget = require(\&quot;$:/core/modules/widgets/widget.js\&quot;).widget;\n\nvar SendMessageWidget = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nSendMessageWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nSendMessageWidget.prototype.render = function(parent,nextSibling) {\n\tthis.computeAttributes();\n\tthis.execute();\n};\n\n/*\nCompute the internal state of the widget\n*/\nSendMessageWidget.prototype.execute = function() {\n\tthis.actionMessage = this.getAttribute(\&quot;$message\&quot;);\n\tthis.actionParam = this.getAttribute(\&quot;$param\&quot;);\n\tthis.actionName = this.getAttribute(\&quot;$name\&quot;);\n\tthis.actionValue = this.getAttribute(\&quot;$value\&quot;,\&quot;\&quot;);\n};\n\n/*\nRefresh the widget by ensuring our attributes are up to date\n*/\nSendMessageWidget.prototype.refresh = function(changedTiddlers) {\n\tvar changedAttributes = this.computeAttributes();\n\tif(Object.keys(changedAttributes).length) {\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t}\n\treturn this.refreshChildren(changedTiddlers);\n};\n\n/*\nInvoke the action associated with this widget\n*/\nSendMessageWidget.prototype.invokeAction = function(triggeringWidget,event) {\n\t// Get the string parameter\n\tvar param = this.actionParam;\n\t// Assemble the attributes as a hashmap\n\tvar paramObject = Object.create(null);\n\tvar count = 0;\n\t$tw.utils.each(this.attributes,function(attribute,name) {\n\t\tif(name.charAt(0) !== \&quot;$\&quot;) {\n\t\t\tparamObject[name] = attribute;\n\t\t\tcount++;\n\t\t}\n\t});\n\t// Add name/value pair if present\n\tif(this.actionName) {\n\t\tparamObject[this.actionName] = this.actionValue;\n\t}\n\t// Dispatch the message\n\tthis.dispatchEvent({\n\t\ttype: this.actionMessage,\n\t\tparam: param,\n\t\tparamObject: paramObject,\n\t\ttiddlerTitle: this.getVariable(\&quot;currentTiddler\&quot;),\n\t\tnavigateFromTitle: this.getVariable(\&quot;storyTiddler\&quot;)\n\t});\n\treturn true; // Action was invoked\n};\n\nexports[\&quot;action-sendmessage\&quot;] = SendMessageWidget;\n\n})();\n&quot;,
             &quot;title&quot;: &quot;$:/core/modules/widgets/action-sendmessage.js&quot;,
@@ -4197,6 +4212,12 @@ Error message and password prompt
         &quot;$:/core/modules/widgets/action-setfield.js&quot;: {
             &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/widgets/action-setfield.js\ntype: application/javascript\nmodule-type: widget\n\nAction widget to set a single field or index on a tiddler.\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar Widget = require(\&quot;$:/core/modules/widgets/widget.js\&quot;).widget;\n\nvar SetFieldWidget = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nSetFieldWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nSetFieldWidget.prototype.render = function(parent,nextSibling) {\n\tthis.computeAttributes();\n\tthis.execute();\n};\n\n/*\nCompute the internal state of the widget\n*/\nSetFieldWidget.prototype.execute = function() {\n\tthis.actionTiddler = this.getAttribute(\&quot;$tiddler\&quot;,this.getVariable(\&quot;currentTiddler\&quot;));\n\tthis.actionField = this.getAttribute(\&quot;$field\&quot;);\n\tthis.actionIndex = this.getAttribute(\&quot;$index\&quot;);\n\tthis.actionValue = this.getAttribute(\&quot;$value\&quot;);\n};\n\n/*\nRefresh the widget by ensuring our attributes are up to date\n*/\nSetFieldWidget.prototype.refresh = function(changedTiddlers) {\n\tvar changedAttributes = this.computeAttributes();\n\tif(changedAttributes[\&quot;$tiddler\&quot;] || changedAttributes[\&quot;$field\&quot;] || changedAttributes[\&quot;$index\&quot;] || changedAttributes[\&quot;$value\&quot;]) {\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t}\n\treturn this.refreshChildren(changedTiddlers);\n};\n\n/*\nInvoke the action associated with this widget\n*/\nSetFieldWidget.prototype.invokeAction = function(triggeringWidget,event) {\n\tvar self = this;\n\tif(typeof this.actionValue === \&quot;string\&quot;) {\n\t\tthis.wiki.setText(this.actionTiddler,this.actionField,this.actionIndex,this.actionValue);\t\t\n\t}\n\t$tw.utils.each(this.attributes,function(attribute,name) {\n\t\tif(name.charAt(0) !== \&quot;$\&quot;) {\n\t\t\tself.wiki.setText(self.actionTiddler,name,undefined,attribute);\n\t\t}\n\t});\n\treturn true; // Action was invoked\n};\n\nexports[\&quot;action-setfield\&quot;] = SetFieldWidget;\n\n})();\n&quot;,
             &quot;title&quot;: &quot;$:/core/modules/widgets/action-setfield.js&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;module-type&quot;: &quot;widget&quot;
+        },
+        &quot;$:/core/modules/widgets/action-socketSend.js&quot;: {
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/widgets/action-socketSend.js\ntype: application/javascript\nmodule-type: widget\n\nAction widget to send info via Socket.io\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar Widget = require(\&quot;$:/core/modules/widgets/widget.js\&quot;).widget;\n\nvar SocketWidget = function(parseTreeNode,options) {\n    this.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nSocketWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nSocketWidget.prototype.render = function(parent,nextSibling) {\n    this.computeAttributes();\n    this.execute();\n};\n\n/*\nCompute the internal state of the widget\n*/\nSocketWidget.prototype.execute = function() {\n    this.actionTo = this.getAttribute(\&quot;$sound\&quot;);\n    this.actionTo = this.getAttribute(\&quot;$key\&quot;);\n};\n\n/*\nRefresh the widget by ensuring our attributes are up to date\n*/\nSocketWidget.prototype.refresh = function(changedTiddlers) {\n    var changedAttributes = this.computeAttributes();\n    if(changedAttributes[\&quot;$sound\&quot;] || changedAttributes[\&quot;$key\&quot;]) {\n\tthis.refreshSelf();\n\treturn true;\n    }\n    return this.refreshChildren(changedTiddlers);\n};\n\n/*\nInvoke the action associated with this widget\n*/\nSocketWidget.prototype.invokeAction = function(triggeringWidget,event) {\n\n    // *** Make an oblect message and send it to the Server\n\n    var msg = {\n        sound: this.getAttribute(\&quot;$sound\&quot;),\n\tkey: this.getAttribute(\&quot;$key\&quot;)\n    };\n    \n    socket.emit('sound info', msg);\n\n    return true; // Action was invoked\n};\n    \n    exports[\&quot;action-socketSend\&quot;] = SocketWidget;\n\n})();\n&quot;,
+            &quot;title&quot;: &quot;$:/core/modules/widgets/action-socketSend.js&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;module-type&quot;: &quot;widget&quot;
         },
@@ -21681,6 +21702,13 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20150417191656805" modified="20150418185243408" tags="$:/tags/RawMarkup" title="$:/myJS/include_socket.io" type="text/vnd.tiddlywiki">
+<pre>&lt;script src=&quot;js/socket.io-1.2.0.js&quot;&gt;&lt;/script&gt;
+</pre>
+</div>
+<div created="20150418163343076" modified="20150421235936697" tags="$:/tags/RawMarkup" title="$:/myJS/tiddlySocket" type="text/vnd.tiddlywiki">
+<pre>&lt;script src=&quot;js/tiddlySocket.js&quot;&gt;&lt;/script&gt;</pre>
+</div>
 <div created="20151011151045112" modified="20151011151043929" title="$:/palette" type="text/vnd.tiddlywiki">
 <pre>$:/palettes/ContrastLight</pre>
 </div>
@@ -22029,7 +22057,7 @@ rsync -avz index.html iani@larigot.avarts.ionio.gr:/Library/WebServer/Documents/
 
 </pre>
 </div>
-<div created="20151010133450487" modified="20151013145915548" title="Home" type="text/vnd.tiddlywiki">
+<div created="20151010133450487" modified="20151030145343687" title="Home" type="text/vnd.tiddlywiki">
 <pre>Two Worlds is a cultural project co-organised by ~NeMe, the Cyprus University of Technology (School of Fine and Applied Arts) and the Department of Audio and Visual Arts of the Ionian University focusing on some of the of issues related to migration. The project commenced two years ago by way of discussions between Iannis Zannos, Yiannis Christides and Yiannis Colakides which initiated a collaboration framework on sound art with the objective of realizing an installation at the newly opened ~NeMe Art Center.  Shared interests as well as participation in parallel projects and an examination of current global issues eventually led to the choice of migration and topic, and the idea of creating an interactive sound installation, where the voices of migrants and displaced people are the protagonists.
 
 * [[Background]]
@@ -22038,6 +22066,7 @@ rsync -avz index.html iani@larigot.avarts.ionio.gr:/Library/WebServer/Documents/
 * [[Partners]]
 * [[Design]]
 * [[Implementation]]
+* [[Sounds]] (!)
 
 &lt;&lt;tabs &quot;Installation Seminar Workshops&quot; Installation&gt;&gt;
 </pre>
@@ -22109,6 +22138,16 @@ Devices connected to the WiFi router are:
 
 Data input into the RPI via GPIO is done by expressly polling the SPI chip by sending it a command.  Each time we want to get a new measurement value, we send that command to the SPI chip. 
 
+
+</pre>
+</div>
+<div created="20151030145351534" modified="20151030145405605" title="Sounds" type="text/vnd.tiddlywiki">
+<pre>* [[Test Sound]]</pre>
+</div>
+<div created="20151030145414653" modified="20151030155719208" title="Test Sound" type="text/vnd.tiddlywiki">
+<pre>Testing only
+
+&lt;$button class=&quot;tc-btn-invisible&quot;&gt;&lt;$action-socketSend $sound=&quot;soundname&quot; $key=&quot;keyword&quot;/&gt;TheSoundName&lt;/$button&gt;
 
 </pre>
 </div>
