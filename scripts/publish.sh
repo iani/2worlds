@@ -9,4 +9,4 @@ git checkout gh-pages
 git merge master
 git push origin gh-pages
 git checkout master
-rsync -avz index.html iani@larigot.avarts.ionio.gr:/Library/WebServer/Documents/projects/2worlds/
+rsync -avz index.html iani@larigot.avarts.ionio.gr:/Users/Shared/Projects/TwoWorlds/webosc/public/
