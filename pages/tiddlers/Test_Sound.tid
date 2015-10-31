@@ -1,11 +1,11 @@
 created: 20151030145414653
-modified: 20151031073524535
+modified: 20151031090427209
 title: Test Sound
 type: text/vnd.tiddlywiki
 
 First an example from the TiddlyWiki web site: 
 
-* {{Caruso - Ave Maria}} <$button class="tc-btn-invisible"><$action-socketSend $sound="soundname" $key="keyword"/>keyword number one</$button>
+* {{Caruso - Ave Maria}} <$button class="tc-btn-invisible"><$action-socketSend $sound="CARUSO" $key="TENORES"/>Tenors...</$button>
 
 Next an example from larigot: 
 
