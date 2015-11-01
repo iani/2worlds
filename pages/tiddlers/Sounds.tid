@@ -1,7 +1,8 @@
 created: 20151030145351534
-modified: 20151101192935142
+modified: 20151101195420813
 title: Sounds
 type: text/vnd.tiddlywiki
 
-<$list filter="[tag[ambience]sort[title]]"/>
+Select a sound to preview and optionally send to the installation at the ~NeMe Art Center in Limassol:
 
+<<tabs "[tag[sounds]]" "Catholic Church" "$:/state/tab2" "tc-horizontal">>
