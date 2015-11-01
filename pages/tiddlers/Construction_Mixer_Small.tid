@@ -1,0 +1,16 @@
+created: 20151030145414653
+modified: 20151031142914583
+tags: construction tools machine
+title: Construction Mixer Small
+type: text/vnd.tiddlywiki
+
+{{Construction_Mixer_Small_mp3}} 
+
+!!!Keywords: 
+
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Construction_Mixer_Small" $key="construction"/>construction</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Construction_Mixer_Small" $key="tools"/>tools</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Construction_Mixer_Small" $key="machine"/>machine</$button>
+
+!!!! Note:
+To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.

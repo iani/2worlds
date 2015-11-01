@@ -1,0 +1,18 @@
+created: 20151030145414653
+modified: 20151031142914583
+tags: cards game ambience everyday life
+title: TC PlayingCards
+type: text/vnd.tiddlywiki
+
+{{TC_PlayingCards_mp3}} 
+
+!!!Keywords: 
+
+<$button class="tc-btn-invisible"><$action-socketSend $sound="TC_PlayingCards" $key="cards"/>cards</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="TC_PlayingCards" $key="game"/>game</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="TC_PlayingCards" $key="ambience"/>ambience</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="TC_PlayingCards" $key="everyday"/>everyday</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="TC_PlayingCards" $key="life"/>life</$button>
+
+!!!! Note:
+To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.

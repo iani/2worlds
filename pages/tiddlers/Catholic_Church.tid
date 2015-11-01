@@ -1,0 +1,17 @@
+created: 20151030145414653
+modified: 20151031142914583
+tags: church ambience indoor religious
+title: Catholic Church
+type: text/vnd.tiddlywiki
+
+{{Catholic_Church_mp3}} 
+
+!!!Keywords: 
+
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Catholic_Church" $key="church"/>church</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Catholic_Church" $key="ambience"/>ambience</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Catholic_Church" $key="indoor"/>indoor</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Catholic_Church" $key="religious"/>religious</$button>
+
+!!!! Note:
+To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.

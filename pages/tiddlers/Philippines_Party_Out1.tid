@@ -1,0 +1,17 @@
+created: 20151030145414653
+modified: 20151031142914583
+tags: live song community music
+title: Filipinos Party Out 1
+type: text/vnd.tiddlywiki
+
+{{Philippines_Party_Out1_mp3}} 
+
+!!!Keywords: 
+
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Philippines_Party_Out1" $key="live"/>live</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Philippines_Party_Out1" $key="song"/>song</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Philippines_Party_Out1" $key="community"/>community</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Philippines_Party_Out1" $key="music"/>music</$button>
+
+!!!! Note:
+To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.

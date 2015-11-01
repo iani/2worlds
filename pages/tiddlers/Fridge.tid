@@ -1,0 +1,18 @@
+created: 20151030145414653
+modified: 20151031142914583
+tags: fridge machine noise everyday life
+title: Fridge
+type: text/vnd.tiddlywiki
+
+{{Fridge_mp3}} 
+
+!!!Keywords: 
+
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Fridge" $key="fridge"/>fridge</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Fridge" $key="machine"/>machine</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Fridge" $key="noise"/>noise</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Fridge" $key="everyday"/>everyday</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Fridge" $key="life"/>life</$button>
+
+!!!! Note:
+To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.
