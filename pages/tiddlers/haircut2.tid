@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 !!!Keywords: 
 
 <$button class="tc-btn-invisible"><$action-socketSend $sound="haircut2" $key="barber"/>barber</$button>,
-<$button class="tc-btn-invisible"><$action-socketSend $sound="haircut2" $key="hair cut"/>hair cut</$button>,
+<$button class="tc-btn-invisible"><$action-socketSend $sound="haircut2" $key="haircut"/>haircut</$button>,
 <$button class="tc-btn-invisible"><$action-socketSend $sound="haircut2" $key="spraying"/>spraying</$button>,
 <$button class="tc-btn-invisible"><$action-socketSend $sound="haircut2" $key="everyday"/>everyday</$button>,
 <$button class="tc-btn-invisible"><$action-socketSend $sound="haircut2" $key="life"/>life</$button>

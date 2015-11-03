@@ -12,6 +12,7 @@ type: text/vnd.tiddlywiki
 <$button class="tc-btn-invisible"><$action-socketSend $sound="Kurdish_makingTea" $key="ambience"/>ambience</$button>,
 <$button class="tc-btn-invisible"><$action-socketSend $sound="Kurdish_makingTea" $key="everyday"/>everyday</$button>,
 <$button class="tc-btn-invisible"><$action-socketSend $sound="Kurdish_makingTea" $key="life"/>life</$button>
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Kurdish_win" $key="Kurdistan"/>Kurdistan</$button>
 
 !!!! Note:
 To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.

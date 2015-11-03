@@ -8,7 +8,8 @@ type: text/vnd.tiddlywiki
 
 !!!Keywords: 
 
-<$button class="tc-btn-invisible"><$action-socketSend $sound="Kurd_baglama" $key="Africa"/>music</$button>
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Kurd_baglama" $key="music"/>music</$button>
+<$button class="tc-btn-invisible"><$action-socketSend $sound="Kurdish_win" $key="Kurdistan"/>Kurdistan</$button>
 
 !!!! Note:
 To send this sound to the installation, click on any of the keywords.  This will send the sound and the keyword to the installation, thus playing it through one of the speakers that is currently associated with this keyword.
